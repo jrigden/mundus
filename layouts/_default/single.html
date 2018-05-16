@@ -41,11 +41,12 @@
                     {{ end }}
                     {{ .Content }}
                 </div>
+                <hr>
                 <p class="corrections">
-                        <a href="{{ $.Site.Params.content_source_url }}/edit/master/{{ .File.Path }}">
-                          Corrections and suggestions for this page can be made on Github.
-                        </a>
-                      </p>
+                    <a href="{{ $.Site.Params.content_source_url }}/edit/master/{{ .File.Path }}">
+                        Corrections and suggestions for this page can be made on Github.
+                    </a>
+                </p>
             </article>
     </div>
 </div>
