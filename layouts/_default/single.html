@@ -10,7 +10,7 @@
                 {{ end }}
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta-data">
-                        Posted by <a href="">{{ .Params.author}}</a> on {{ .Date.Format "January 2, 2006" }}
+                        Posted by <a href="{{ .Params.author_link }}">{{ .Params.author}}</a> on {{ .Date.Format "January 2, 2006" }}
                         {{ if .Params.categories }}
                                 <br>
                             {{ $len := len .Params.categories }}
@@ -46,7 +46,6 @@
                           Corrections and suggestions for this page can be made on Github.
                         </a>
                       </p>
-                      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeQkqzaHIAX9Io5Av73Hk07MAsiLz4HzcjbJol3TW-2SaqO9Q/viewform?embedded=true" width="700" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
             </article>
     </div>
 </div>

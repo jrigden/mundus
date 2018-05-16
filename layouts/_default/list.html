@@ -16,7 +16,7 @@
                 <a href="{{ .Permalink }}"><h1>{{ .Title }}</h1></a>
                 
                 <div class="post-meta-data">
-                        Posted by <a href="">{{ .Params.author}}</a> on {{ .Date.Format "January 2, 2006" }}
+                        Posted by <a href="{{ .Params.author_link }}">{{ .Params.author}}</a> on {{ .Date.Format "January 2, 2006" }}
                 </div>        
                 <div class="post-summary">
                     {{ if .Params.youtube }}
