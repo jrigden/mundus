@@ -1,0 +1,40 @@
+<meta name="description" content="{{ replaceRE "\n" "" (.Description | default .Summary) }}">
+
+
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ .Permalink }}">
+
+{{if isset .Params "feature_image" }}<meta property="og:image" content="{{ index .Params "feature_image" }}">{{else}}<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail | default "images/default.png" }}">{{ end }}
+
+{{if .Params.feature_image }}
+<meta property="og:image" content="{{ .Site.BaseURL }}img/{{ .Params.feature_image }}">
+{{else}}
+<meta property="og:image" content="{{ .Site.BaseURL }}img/default.jpg">
+
+{{ end }}
+
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:description" content="{{ replaceRE "\n" "" (.Description | default .Summary) }}">
+<meta property="og:locale" content="en_US">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="{{ .Site.Title }}">
+<meta name="twitter:url" content="{{ .Permalink }}">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ replaceRE "\n" "" (.Description | default .Summary) }}">
+{{if .Params.feature_image }}
+<meta name="twitter:image" content="{{ .Params.feature_image }}">
+{{else}}
+<meta name="twitter:image" content="{{.Site.BaseURL }}img/default.jpg">
+
+{{ end }}
+
+{{if .Params.canonical_url }}
+<link rel="canonical" href="{{ .Params.canonical_url }}">
+{{ else }}
+<link rel="canonical" href="{{ .Permalink }}">
+{{ end }}

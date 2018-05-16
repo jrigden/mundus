@@ -1,0 +1,8 @@
+
+    <footer>
+        <ul class="nav">
+        {{ range .Site.Menus.auxiliary }}
+            <li><a href="{{ .URL }}">{{ .Title }}</a></li>
+        {{ end }}
+        </ul>
+    </footer>

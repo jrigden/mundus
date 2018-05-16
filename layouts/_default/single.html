@@ -1,0 +1,56 @@
+<!doctype html>
+{{ partial "head.html" . }}
+<body>
+<div class="page">
+    {{ partial "header.html" . }}
+    <div class="content">
+        <article>
+                {{ if .Params.feature_image }}
+                    <img src="/img/{{ .Params.feature_image }}" class="featured-images">
+                {{ end }}
+                <h1>{{ .Title }}</h1>
+                <div class="post-meta-data">
+                        Posted by <a href="">{{ .Params.author}}</a> on {{ .Date.Format "January 2, 2006" }}
+                        {{ if .Params.categories }}
+                                <br>
+                            {{ $len := len .Params.categories }}
+                            {{ range $index, $category := .Params.categories }}
+                                <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+                                {{- if lt $index (sub $len 1) -}}, {{ end }}
+                            {{ end }} 
+                        {{ end }}
+
+                        {{ if .Params.tags }}
+                        <br>
+                            Tags:
+                            {{ $len := len .Params.tags }}
+                            {{ range $index, $tag := .Params.tags }}
+                                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+                                {{- if lt $index (sub $len 1) -}}, {{ end }}
+                            {{ end }} 
+                        {{ end }}
+                </div>
+
+
+                <div class="post-body">
+                    <p>{{  .Permalink }}</p>                       
+
+                    {{ if .Params.youtube }}
+                        <p>
+                            <div class='embed-container'><iframe src='https://www.youtube.com/embed/{{ .Params.youtube }}' frameborder='0' allowfullscreen></iframe></div>
+                        </p> 
+                    {{ end }}
+                    {{ .Content }}
+                </div>
+                <p class="corrections">
+                        <a href="{{ $.Site.Params.content_source_url }}/edit/master/{{ .File.Path }}">
+                          Corrections and suggestions for this page can be made on Github.
+                        </a>
+                      </p>
+                      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeQkqzaHIAX9Io5Av73Hk07MAsiLz4HzcjbJol3TW-2SaqO9Q/viewform?embedded=true" width="700" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+            </article>
+    </div>
+</div>
+{{ partial "footer.html" . }}
+</body>
+</html>
