@@ -1,0 +1,8 @@
+{{ partial "analytics.html" . }}
+{{ if .IsPage}}
+    {{ .Params.tags }}
+        {{ if in .Params.tags "Code" }}
+            <script src="/highlight/highlight.pack.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script>
+        {{ end }}
+{{ end }}
