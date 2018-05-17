@@ -171,3 +171,7 @@ pre {
     overflow: auto;
 
 }
+ .player {
+     padding-top: 1rem;
+     padding-bottom: 1rem;
+ }

@@ -11,15 +11,6 @@
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta-data">
                         Posted by <a href="{{ .Params.author_link }}">{{ .Params.author}}</a> on {{ .Date.Format "January 2, 2006" }}
-                        {{ if .Params.categories }}
-                                <br>
-                            {{ $len := len .Params.categories }}
-                            {{ range $index, $category := .Params.categories }}
-                                <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
-                                {{- if lt $index (sub $len 1) -}}, {{ end }}
-                            {{ end }} 
-                        {{ end }}
-
                         {{ if .Params.tags }}
                         <br>
                             Tags:
@@ -29,6 +20,17 @@
                                 {{- if lt $index (sub $len 1) -}}, {{ end }}
                             {{ end }} 
                         {{ end }}
+                        {{ if .Params.categories }}
+                                <br>
+                                Category:
+                            {{ $len := len .Params.categories }}
+                            {{ range $index, $category := .Params.categories }}
+                                <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+                                {{- if lt $index (sub $len 1) -}}, {{ end }}
+                            {{ end }}
+                        {{ end }}
+
+
                 </div>
 
 
