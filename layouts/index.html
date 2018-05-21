@@ -3,45 +3,8 @@
 <body>
 <div class="page">
     {{ partial "header.html" . }}
-    <div class="content">
-            {{ range .Paginator.Pages }}
-            <article>
-                <a href="{{ .Permalink }}"><h1>{{ .Title }}</h1></a>
-                
-                <div class="post-meta-data">
-                        Posted by <a href="{{ .Params.author_link }}">{{ .Params.author}}</a> on {{ .Date.Format "January 2, 2006" }}
-                </div>        
-                <div class="post-summary">
-                    {{ if .Params.youtube }}
-                        <p>
-                            <div class='embed-container'><iframe src='https://www.youtube.com/embed/{{ .Params.youtube }}' frameborder='0' allowfullscreen></iframe></div>
-                        </p> 
-                    {{ end }}
-                    <p>
-                    {{ .Description }}
-                    </p>
+    {{ partial "li.html" . }}
 
-                </div>
-            </article>
-            
-            {{ end }}
-
-            {{ $pag := $.Paginator }}
-            {{ if gt $pag.TotalPages 1 }}
-                <nav class="pagination" role="navigation">
-                    {{ if $pag.HasPrev }}
-                        <a href="{{ $pag.Prev.URL }}">Newer</a>
-                    {{ end }}
-                    <span class="page-number">Page {{ $pag.PageNumber }} of {{ $pag.TotalPages }}</span>
-                    {{ if $pag.HasNext }}
-                        <a href="{{ $pag.Next.URL }}">Older </a>
-                    {{ end }}
-                </nav>
-            {{ end }}
-            
-    
-
-    </div>
 </div>
 {{ partial "footer.html" . }}
 {{ partial "scripts.html" . }}
