@@ -179,3 +179,18 @@ pre {
      padding-top: 1rem;
      padding-bottom: 1rem;
  }
+
+.podcast-box {
+    text-align: center;
+}
+.podcast-box h1{
+    margin-bottom: 0rem;
+}
+
+.podcast-box p{
+    margin-bottom: 1rem;
+}
+
+h1.tag-title.explaining-cryptocurrency-link {
+    display: none;
+}
